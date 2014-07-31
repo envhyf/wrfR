@@ -9,7 +9,7 @@
 
 ## Description: 
 
-The *R WRF post processing tools* is a suite of R tools developed to ease working in R with projected meteorological and air quality netcdf files (http://www.unidata.ucar.edu/software/netcdf/), mostly coming from WRF and WRF-CHEM (http://www.wrf-model.org) 
+The **R WRF post processing tools** is a suite of R tools developed to ease working in R with projected meteorological and air quality netcdf files (http://www.unidata.ucar.edu/software/netcdf/), mostly coming from WRF and WRF-CHEM (http://www.wrf-model.org) 
 
 The current version v0.1 is a "raw" testing version developed on the base of some R functions I already had product of my research on atmospheric science. So, please, be aware that at this point most of the functions need a real optimization.
 
