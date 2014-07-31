@@ -25,4 +25,4 @@ install_github("ilopezcoto/wrfR")
 ```
 ## License:
 
-GPL-3
+GPL v3
