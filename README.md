@@ -18,7 +18,7 @@ This project aims to be collaborative and expected to grow with time as **useRs*
 ## Getting started: 
 
 ```
-library(devtools)</code> 
+library(devtools) 
 install_github("ilopezcoto/wrfR")
 ```
 ## License:
