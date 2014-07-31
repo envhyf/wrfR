@@ -47,7 +47,12 @@ require(raster)
   dimnames(st.loc)[[2]]<-c('name','lat','lon','elev','lat_indx','lon_indx')
   
   st.loc<-data.frame(st.loc,stringsAsFactors=F)
-  class(st.loc[,2:6])<-'numeric'
+
+  st.loc$lat<-as.numeric(st.loc$lat)
+  st.loc$lon<-as.numeric(st.loc$lon)
+  st.loc$elev<-as.numeric(st.loc$elev)
+  st.loc$lat_indx<-as.numeric(st.loc$lat_indx)
+  st.loc$lon_indx<-as.numeric(st.loc$lon_indx)
   
   return(st.loc)
 }
