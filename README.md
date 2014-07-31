@@ -6,6 +6,8 @@
 - Date: 2014-07-30
 - Author: I. Lopez-Coto (inl@nist.gov / israel.lopez@dfa.uhu.es)
 - Maintainer: I. Lopez-Coto (inl@nist.gov / israel.lopez@dfa.uhu.es)
+- project webpage: http://ilopezcoto.github.io/wrfR
+- github repo: https://github.com/ilopezcoto/wrfR/
 
 ## Description: 
 
