@@ -14,7 +14,12 @@ The R WRF post processing tools is a suite of R tools developed to ease working 
 
 The current version v0.1 is a "raw" testing version developed on the base of some R functions I already had product of my research on atmospheric science. so, please, be aware that at this point most of the functions need a real optimization.
 
-This project aims to be collaborative and expected to grow with time as useRs help to optimize, improve and extend this wrfR package.  
+This project aims to be collaborative and expected to grow with time as useRs help to optimize, improve and extend this wrfR package. 
+
+to get started: 
+
+<code>library(devtools)</code>
+<code>install_github("ilopezcoto/wrfR")</code>
 
 ## License:
 
