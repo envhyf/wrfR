@@ -28,6 +28,4 @@ help(wrfR)
 ```
 ## License:
 
-![]("http://www.gnu.org/graphics/gplv3-127x51.png")
-
 <a href="http://www.gnu.org/licenses/gpl-3.0.txt" >GPLv3</a>
