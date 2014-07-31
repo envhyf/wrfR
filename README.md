@@ -1,0 +1,17 @@
+## wrfR: R WRF post processing tools
+
+Version: 0.1
+
+Date: 2014-07-30
+
+Author: I. Lopez-Coto (israel.lopez@dfa.uhu.es / inl@nist.gov)
+
+Maintainer: I. Lopez-Coto (israel.lopez@dfa.uhu.es / inl@nist.gov)
+
+## Description: 
+
+WRF post processing tools
+
+## License:
+
+GPL-3
