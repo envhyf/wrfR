@@ -7,7 +7,15 @@ WRF post processing tools
 -- README 
 }
 \description{
-WRF post processing tools ...
+
+The \strong{R WRF post processing tools} is a suite of R tools developed to ease working in R with projected meteorological and air quality netcdf files (http://www.unidata.ucar.edu/software/netcdf/), mostly coming from WRF and WRF-CHEM (http://www.wrf-model.org) 
+
+The current version v0.1 is a "raw" testing version developed on the base of some R functions I already had as a product of my research on Atmospheric Sciences. Please, be aware that, at this point, most of the functions need to be optimizated. 
+
+This project aims to be collaborative and it is expected to grow with time as \strong{wrfseRs}  help to optimize, improve and extend this \strong{wrfR} package. 
+
+\link{https://github.com/ilopezcoto/wrfR} \cr
+\link{http://ilopezcoto.github.io/wrfR/}
 }
 \details{
 \tabular{ll}{
