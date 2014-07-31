@@ -28,4 +28,4 @@ help(wrfR)
 ```
 ## License:
 
-<a href="http://www.gnu.org/licenses/gpl-3.0.txt" >GPLv3</a>
+<a href="https://github.com/ilopezcoto/wrfR/blob/master/LICENSE" >GPLv3</a>
