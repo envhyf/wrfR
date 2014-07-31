@@ -17,7 +17,7 @@ The current version v0.1 is a "raw" testing version developed on the base of som
 
 This project aims to be collaborative and it is expected to grow with time as **wrfseRs**  help to optimize, improve and extend this <a href="https://github.com/ilopezcoto/wrfR/">wrfR</a> package. 
 
-## Getting started: 
+## Getting started:
 
 ```
 library(devtools) 
