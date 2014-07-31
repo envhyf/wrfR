@@ -22,6 +22,8 @@ This project aims to be collaborative and expected to grow with time as **wrfseR
 ```
 library(devtools) 
 install_github("ilopezcoto/wrfR")
+library(wrfR) 
+help(wrfR)
 ```
 ## License:
 
