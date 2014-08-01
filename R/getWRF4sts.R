@@ -1,4 +1,4 @@
-#'  @title Extract WRF data at stations locations
+#'  @title Convert and extract WRF data at stations locations
 #'  @description
 #'  \code{getWRF4sts} extracts WRF default (meteorological variables) + additional variables at stations locations from WRF files. 
 #'  @param filenames a vector of WRF filenames (It can be length(filenames) == 1)

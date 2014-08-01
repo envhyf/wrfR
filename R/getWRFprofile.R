@@ -1,4 +1,4 @@
-#'  @title Extract WRF vertical profiles at stations locations
+#'  @title Convert and extract WRF vertical profiles at stations locations
 #'  @description
 #'  \code{getWRFprofile} extracts WRF vertical profiles of default (meteorological variables) + additional variables at stations locations from WRF files. 
 #'  @param filenames a vector of WRF filenames (It can be length(filenames) == 1)

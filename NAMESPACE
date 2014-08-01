@@ -2,8 +2,10 @@
 
 export(filled.contour2)
 export(filledContour2)
+export(getCONC4st)
 export(getGRID)
 export(getWRF4sts)
+export(getWRFcube)
 export(getWRFprofile)
 export(locWRFst)
 export(vert.interp)
