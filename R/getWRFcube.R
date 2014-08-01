@@ -12,7 +12,7 @@
 #'  @param WRFproj proj4 string witht the current projection as produced by \link{getGRID}
 #'  @param var4d vector of strings containing the name(s) of 4D WRF variable(s) to extract 
 #'  @param var3d vector of strings containing the name(s) of 3D WRF variable(s) to extract 
-#'  @return list containing objects, mostly rasters, for the variables \cr
+#'  @return list containing raster objects for the variables \cr
 #'  c('U3D','V3D','W3D','WS3D','WD3D','P3D','T3D','TH3D','TD3D',var4d,var3d)   
 
 #'  @author I. Lopez-Coto, 2014 (israel.lopez@@dfa.uhu.es / inl@@nist.gov)
