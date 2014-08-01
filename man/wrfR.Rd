@@ -42,5 +42,7 @@ Maintainer: I. Lopez-Coto (israel.lopez@dfa.uhu.es / inl@nist.gov)
 ~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
 }
 \examples{
-~~ coming soon... ~~
+
+\link{https://github.com/ilopezcoto/wrfR/wiki/Examples}
+
 }
