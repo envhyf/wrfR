@@ -4,7 +4,7 @@
 \title{Convert WRF data to regular 3D cube (lon, lat, z)}
 \usage{
 getWRFcube(nc, time_ind, vlev = 59, HGT_WRF, lon_WRF, lat_WRF, WRFproj, zout,
-  var4d = c("QKE", "tracer_10"), var3d = c("PBLH"))
+  var4d = c("QKE", "tracer_10"), var3d = c("PBLH"), reproject = TRUE)
 }
 \arguments{
 \item{nc}{pointer to the WRF netcdf file as produced by \link{open.nc}}
@@ -24,9 +24,11 @@ getWRFcube(nc, time_ind, vlev = 59, HGT_WRF, lon_WRF, lat_WRF, WRFproj, zout,
 \item{var4d}{vector of strings containing the name(s) of 4D WRF variable(s) to extract}
 
 \item{var3d}{vector of strings containing the name(s) of 3D WRF variable(s) to extract}
+
+\item{reproject}{\code{logical} whether or not to reproject}
 }
 \value{
-list containing objects, mostly rasters, for the variables \cr
+list containing raster objects for the variables \cr
  c('U3D','V3D','W3D','WS3D','WD3D','P3D','T3D','TH3D','TD3D',var4d,var3d)
 }
 \description{

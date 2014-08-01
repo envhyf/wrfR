@@ -12,6 +12,7 @@
 #'  @param WRFproj proj4 string witht the current projection as produced by \link{getGRID}
 #'  @param var4d vector of strings containing the name(s) of 4D WRF variable(s) to extract 
 #'  @param var3d vector of strings containing the name(s) of 3D WRF variable(s) to extract 
+#'  @param reproject \code{logical} whether or not to reproject 
 #'  @return list containing raster objects for the variables \cr
 #'  c('U3D','V3D','W3D','WS3D','WD3D','P3D','T3D','TH3D','TD3D',var4d,var3d)   
 
@@ -19,7 +20,7 @@
 #'  @export
 
 
-getWRFcube<-function(nc,time_ind,vlev=59,HGT_WRF,lon_WRF,lat_WRF,WRFproj,zout,var4d=c('QKE','tracer_10'),var3d=c('PBLH'))
+getWRFcube<-function(nc,time_ind,vlev=59,HGT_WRF,lon_WRF,lat_WRF,WRFproj,zout,var4d=c('QKE','tracer_10'),var3d=c('PBLH'),reproject=TRUE)
 {
   require(RNetCDF)
   
@@ -84,14 +85,14 @@ getWRFcube<-function(nc,time_ind,vlev=59,HGT_WRF,lon_WRF,lat_WRF,WRFproj,zout,va
   ## Process the data
   
   test<-vert.interp(Uearth,zabg,zout)
-  
-  U3D <- wrf3d.brick(subset3d=vert.interp(Uearth,zabg,zout),lon_WRF,lat_WRF,proj.latlon,WRFproj)    
-  V3D <- wrf3d.brick(subset3d=vert.interp(Vearth,zabg,zout),lon_WRF,lat_WRF,proj.latlon,WRFproj)
-  W3D <- wrf3d.brick(subset3d=vert.interp(W,zabg,zout),lon_WRF,lat_WRF,proj.latlon,WRFproj) 
-  P3D <- wrf3d.brick(subset3d=vert.interp(p,zabg,zout),lon_WRF,lat_WRF,proj.latlon,WRFproj)
-  T3D <- wrf3d.brick(subset3d=vert.interp(Temp,zabg,zout),lon_WRF,lat_WRF,proj.latlon,WRFproj)
-  TD3D <- wrf3d.brick(subset3d=vert.interp(Td,zabg,zout),lon_WRF,lat_WRF,proj.latlon,WRFproj)        
-  TH3D <- wrf3d.brick(subset3d=(vert.interp(TWRF,zabg,zout)+300-273.15),lon_WRF,lat_WRF,proj.latlon,WRFproj) 
+
+  U3D <- wrf3d.brick(subset3d=vert.interp(Uearth,zabg,zout),lon_WRF,lat_WRF,proj.latlon,WRFproj,reproject)    
+  V3D <- wrf3d.brick(subset3d=vert.interp(Vearth,zabg,zout),lon_WRF,lat_WRF,proj.latlon,WRFproj,reproject)
+  W3D <- wrf3d.brick(subset3d=vert.interp(W,zabg,zout),lon_WRF,lat_WRF,proj.latlon,WRFproj,reproject) 
+  P3D <- wrf3d.brick(subset3d=vert.interp(p,zabg,zout),lon_WRF,lat_WRF,proj.latlon,WRFproj,reproject)
+  T3D <- wrf3d.brick(subset3d=vert.interp(Temp,zabg,zout),lon_WRF,lat_WRF,proj.latlon,WRFproj,reproject)
+  TD3D <- wrf3d.brick(subset3d=vert.interp(Td,zabg,zout),lon_WRF,lat_WRF,proj.latlon,WRFproj,reproject)        
+  TH3D <- wrf3d.brick(subset3d=(vert.interp(TWRF,zabg,zout)+300-273.15),lon_WRF,lat_WRF,proj.latlon,WRFproj,reproject) 
   
   WS3D <- sqrt(U3D^2 + V3D^2)
   WD3D <- WS3D
@@ -109,7 +110,7 @@ getWRFcube<-function(nc,time_ind,vlev=59,HGT_WRF,lon_WRF,lat_WRF,WRFproj,zout,va
     for (v in 1:length(var4d))
     {
       assign(paste(var4d[v],'_temp',sep=''),var.get.nc(nc,var4d[v],start=c(1,1,1,time_ind), count=c(NA,NA,vlev-1,1)))
-      assign(paste(var4d[v],'3D',sep=''),wrf3d.brick(subset3d=vert.interp(get(paste(var4d[v],'_temp',sep='')),zabg,zout),lon_WRF,lat_WRF,proj.latlon,WRFproj))
+      assign(paste(var4d[v],'3D',sep=''),wrf3d.brick(subset3d=vert.interp(get(paste(var4d[v],'_temp',sep='')),zabg,zout),lon_WRF,lat_WRF,proj.latlon,WRFproj,reproject))
       #d4temp <- cbind(d4temp,temp2)
       st.WRF.temp[[length(st.WRF.temp)+1]] <- get(paste(var4d[v],'3D',sep=''))
       varnames<-c(varnames,var4d[v])
@@ -124,7 +125,7 @@ getWRFcube<-function(nc,time_ind,vlev=59,HGT_WRF,lon_WRF,lat_WRF,WRFproj,zout,va
     for (v in 1:length(var3d))
     {
       assign(paste(var3d[v],'_temp',sep=''),var.get.nc(nc,var3d[v],start=c(1,1,time_ind), count=c(NA,NA,1)))
-      assign(paste(var3d[v],'2D',sep=''),get(paste(var3d[v],'_temp',sep='')))
+      assign(paste(var3d[v],'2D',sep=''),wrf2d.raster(subset=get(paste(var3d[v],'_temp',sep='')),lon_WRF,lat_WRF,proj.latlon,WRFproj,reproject))
       st.WRF.temp[[length(st.WRF.temp)+1]] <- get(paste(var3d[v],'2D',sep=''))
       varnames<-c(varnames,var3d[v])
     }
