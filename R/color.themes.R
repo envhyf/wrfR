@@ -1,10 +1,9 @@
 #'  @title Color Themes
 #'  @description
 #'  \code{color.themes} provides different color schemes
-#'  @param theme \code{string} or \code{integer} indicating the desired color scheme c("radioactive","galaxyblue","bw",'pinkpanther',"iceblue",
-'apocalypse_now','lime','luna','bossanova','trideca')
+#'  @param theme \code{string} or \code{integer} indicating the desired color scheme c("radioactive","galaxyblue","bw",'pinkpanther',"iceblue",'apocalypse_now','lime','luna','bossanova','trideca')
 #'  @param n \code{integer} number of colors
-#'  @param rev \code{logical} reverse the order
+#'  @param rev \code{logical} reverse order
 #'  @return a list with a vector of colors (colsch), and 3 independent colors (col1, col2, st.marker.col). In addition, load the library \link{RColorBrewer}
 #'  @author I. Lopez-Coto, 2014 (israel.lopez@@dfa.uhu.es / inl@@nist.gov)
 #'  @export
