@@ -8,6 +8,7 @@
 - Maintainer: I. Lopez-Coto (inl@nist.gov / israel.lopez@dfa.uhu.es)
 - project webpage: http://ilopezcoto.github.io/wrfR
 - github repo: https://github.com/ilopezcoto/wrfR/
+- wiki: https://github.com/ilopezcoto/wrfR/wiki
 - related webpage: http://atmos.uhu.es
 
 ## Description: 
