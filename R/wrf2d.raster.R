@@ -8,7 +8,6 @@
 #'  @param WRFproj proj4 string witht the current projection
 #'  @param reproject \code{logical} whether or not to reproject 
 #'  @return a reprojected raster object
-
 #'  @author I. Lopez-Coto, 2014 (israel.lopez@@dfa.uhu.es / inl@@nist.gov)
 #'  @export
 #  @examples
