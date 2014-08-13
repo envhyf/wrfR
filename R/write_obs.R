@@ -11,7 +11,7 @@
 #'  @param string4 
 #'  @param ter Terrain elevation
 #'  @param kx Number of vertical levels
-#'  @param mdate Date format %Y%m%d%H
+#'  @param mdate Date 
 #'  @param slp Sea level pressure (Pa)
 #'  @param p Pressures vector (Pa) 
 #'  @param z Heights vector (m) 
@@ -120,9 +120,9 @@ write_obs <- function(xlat,xlon, string1=NULL , string2=NULL ,
 
 #'  @title Write fortran format 
 #'  @description
-#'  \code{write.mat} write fortran formatted output
+#'  \code{write.mat} write fortran formatted string
 #'  @param m matrix or data.frame
-#'  @param code a vector of % codes
+#'  @param code a vector of codes
 #'  @param file file name string
 #'  @param ...
 #'  @return write formatted output\cr
