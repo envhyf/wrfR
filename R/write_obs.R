@@ -136,6 +136,7 @@ write.mat <- function(m, codes, sep = "", ...) {
 }
 
 
+
 #'  @title Write qc flag 
 #'  @description
 #'  \code{qc} Write qc flag 
@@ -146,6 +147,7 @@ write.mat <- function(m, codes, sep = "", ...) {
 #'  @author I. Lopez-Coto, 2014 (israel.lopez@@dfa.uhu.es / inl@@nist.gov)
 #'  @export
 #'
+
 qc<-function(x,nodata=-888888,qcflag=2 ** 15)
 {
   if(x == nodata){
