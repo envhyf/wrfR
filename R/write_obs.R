@@ -102,7 +102,7 @@ write_obs <- function(xlat,xlon, string1=NULL , string2=NULL ,
   ### Write measurements
   
   for (k in 1:kx) {
-    meas_data <- t(matrix(c( p[k], 0, z[k],0, t[k],0, td[k],0, spd[k],0, dir[k],0,-888888.,0, -888888.,0,-888888.,0, -888888.,0)))
+    meas_data <- t(matrix(c( p[k], qc(p[k]), z[k],qc(z[k]), t[k],qc(t[k]), td[k],qc(td[k]), spd[k],qc(spd[k]), dir[k],qc(dir[k]),-888888.,0, -888888.,0,-888888.,0, -888888.,0)))
     write.mat(m=meas_data, c(rep(c("%13.5f" , "%7i"),10), "\n"), file = filename,append=TRUE)
   }
   
@@ -134,3 +134,26 @@ write.mat <- function(m, codes, sep = "", ...) {
                                  as.data.frame(m))))
   if (length(list(...)) > 0) cat(s, sep = sep, ...) else s
 }
+
+
+#'  @title Write qc flag 
+#'  @description
+#'  \code{qc} Write qc flag 
+#'  @param x observation 
+#'  @param nodata no data value 
+#'  @param qcflag qcflag value 
+#'  @return Write qc flag \cr
+#'  @author I. Lopez-Coto, 2014 (israel.lopez@@dfa.uhu.es / inl@@nist.gov)
+#'  @export
+#'
+qc<-function(x,nodata=-888888,qcflag=2 ** 15)
+{
+  if(x == nodata){
+    y = qcflag } 
+  else {
+    y=0
+    }
+  
+  return(y)
+}
+
