@@ -61,7 +61,7 @@ return(paste(pathout,file,sep=''))
 
 readISD <- function(filename,QC=TRUE){
  
-  format.ISD<-read.csv('data/format_ISD.csv')
+  format.ISD<-read.csv(system.file('data/format_ISD.csv', package = "wrfR"))
   ## ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ISD/ish-format-document.pdf
   ## ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ISD/software/isd_display.pl
   
