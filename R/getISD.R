@@ -18,7 +18,7 @@ ISDstations <- function(){stations <- read.csv('ftp://ftp.ncdc.noaa.gov/pub/data
 #'  @author I. Lopez-Coto, 2013 (israel.lopez@@dfa.uhu.es / inl@@nist.gov)
 #'  @export
 
-getISD <- function(pathout='/tmp/',year=2014,USAF = 84490,WBAN=13025,stations=NULL)
+getISD <- function(year=2014,USAF = 84490,WBAN=13025,stations=NULL)
 {
 if (!is.null(stations)){info<-stations[stations$USAF==USAF & stations$WBAN == WBAN,]; print(info)}
 
@@ -28,18 +28,23 @@ if (nchar(WBAN)<5){WBAN <- paste(rep('0',5-nchar(WBAN)),WBAN,sep='')}
 url <- paste('http://www1.ncdc.noaa.gov/pub/data/noaa/',year,'/',sep='')
 file <- paste(USAF,'-',WBAN,'-',year,'.gz',sep='')
 
-if (file.exists(file)) {
-command<-paste('rm ',file,sep='')
-system(command)
-}
-command<-paste('wget ',url,file,sep='')
-system(command)
-command<-paste('mv ',file,' ',pathout,sep='')
-system(command)
-command<-paste('gunzip ',pathout,file,sep='')
-system(command)
+con <- gzcon(url(paste(url,file,sep=''), "r"))
+meta <- readLines(con)
+close(con)
 
-return(paste(pathout,file,sep=''))
+# if (file.exists(file)) {
+# command<-paste('rm ',file,sep='')
+# system(command)
+# }
+# command<-paste('wget ',url,file,sep='')
+# system(command)
+# command<-paste('mv ',file,' ',pathout,sep='')
+# system(command)
+# command<-paste('gunzip ',pathout,file,sep='')
+# system(command)
+
+#return(paste(pathout,file,sep=''))
+return(meta)
 
 }
 
@@ -59,16 +64,16 @@ return(paste(pathout,file,sep=''))
 #'  data <- readISD(filename,QC=FALSE)
 #'  } 
 
-readISD <- function(filename,QC=TRUE){
+readISD <- function(stdata,QC=TRUE){
  
   format.ISD<-read.csv(system.file('data/format_ISD.csv', package = "wrfR"))
   ## ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ISD/ish-format-document.pdf
   ## ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ISD/software/isd_display.pl
   
-  if (file.exists(filename))
-  {
-    stdata<-read.csv(filename)
-    stdata<-as.character(stdata[,])  
+#  if (file.exists(filename))
+#  {
+#    stdata<-read.csv(filename)
+#    stdata<-as.character(stdata[,])  
     
     df <- data.frame(matrix(0,nrow=length(stdata),ncol=length(format.ISD$field)), stringsAsFactors=F)
     dimnames(df)[[2]]<-format.ISD$field
@@ -113,8 +118,9 @@ readISD <- function(filename,QC=TRUE){
     dimnames(df)[[2]][1:6]<-substring(dimnames(df)[[2]][1:6],4,30)
     dimnames(df)[[2]][8:12]<-substring(dimnames(df)[[2]][8:12],4,30)
     
-  } else {
-    df<-NULL 
-  }
+#  } else {
+#    df<-NULL 
+#  }
   return(df)
 }
+
