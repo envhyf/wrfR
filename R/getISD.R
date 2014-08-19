@@ -14,7 +14,7 @@ ISDstations <- function(){stations <- read.csv('ftp://ftp.ncdc.noaa.gov/pub/data
 #'  @param year
 #'  @param USAF
 #'  @param WBAN
-#'  @return data.frame with ISD stations list
+#'  @return character vector with one element per raw ISD report
 #'  @author I. Lopez-Coto, 2013 (israel.lopez@@dfa.uhu.es / inl@@nist.gov)
 #'  @export
 
@@ -52,7 +52,7 @@ return(meta)
 #'  @title Read and reformat the ISD data file 
 #'  @description
 #'  \code{readISD} read and reformat the ISD data file 
-#'  @param stdata 
+#'  @param stdata character vector with one element per ISD raw report
 #'  @param QC \code{logical}
 #'  @return data.frame with ISD station data
 #'  @author I. Lopez-Coto, 2013 (israel.lopez@@dfa.uhu.es / inl@@nist.gov)

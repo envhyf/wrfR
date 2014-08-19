@@ -15,7 +15,7 @@ getISD(year = 2014, USAF = 84490, WBAN = 13025, stations = NULL)
 \item{WBAN}{}
 }
 \value{
-data.frame with ISD stations list
+character vector with one element per raw ISD report
 }
 \description{
 \code{getISD} download the station data from the ftp://ftp.ncdc.noaa.gov/pub/data/noaa/...

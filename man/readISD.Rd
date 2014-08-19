@@ -6,7 +6,7 @@
 readISD(stdata, QC = TRUE)
 }
 \arguments{
-\item{stdata}{}
+\item{stdata}{character vector with one element per ISD raw report}
 
 \item{QC}{\code{logical}}
 }
