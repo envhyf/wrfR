@@ -11,9 +11,9 @@ ISDstations <- function(){stations <- read.csv('ftp://ftp.ncdc.noaa.gov/pub/data
 #'  @description
 #'  \code{getISD} download the station data from the ftp://ftp.ncdc.noaa.gov/pub/data/noaa/...
 #'  @param pathout 
-#'  @param year
-#'  @param USAF
-#'  @param WBAN
+#'  @param year 4 digits year
+#'  @param USAF usaf station code (6 digits but it accepts less)
+#'  @param WBAN wban station code (5 digits but it accepts less)
 #'  @return character vector with one element per raw ISD report
 #'  @author I. Lopez-Coto, 2013 (israel.lopez@@dfa.uhu.es / inl@@nist.gov)
 #'  @export

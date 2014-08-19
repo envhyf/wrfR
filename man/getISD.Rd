@@ -8,11 +8,11 @@ getISD(year = 2014, USAF = 84490, WBAN = 13025, stations = NULL)
 \arguments{
 \item{pathout}{}
 
-\item{year}{}
+\item{year}{4 digits year}
 
-\item{USAF}{}
+\item{USAF}{usaf station code (6 digits but it accepts less)}
 
-\item{WBAN}{}
+\item{WBAN}{wban station code (5 digits but it accepts less)}
 }
 \value{
 character vector with one element per raw ISD report
