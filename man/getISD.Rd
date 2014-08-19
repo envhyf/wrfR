@@ -3,8 +3,7 @@
 \alias{getISD}
 \title{Retrieve the ISD data file}
 \usage{
-getISD(pathout = "/tmp/", year = 2014, USAF = 84490, WBAN = 13025,
-  stations = NULL)
+getISD(year = 2014, USAF = 84490, WBAN = 13025, stations = NULL)
 }
 \arguments{
 \item{pathout}{}

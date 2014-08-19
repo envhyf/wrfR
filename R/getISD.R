@@ -52,16 +52,15 @@ return(meta)
 #'  @title Read and reformat the ISD data file 
 #'  @description
 #'  \code{readISD} read and reformat the ISD data file 
-#'  @param filename 
+#'  @param stdata 
 #'  @param QC \code{logical}
 #'  @return data.frame with ISD station data
 #'  @author I. Lopez-Coto, 2013 (israel.lopez@@dfa.uhu.es / inl@@nist.gov)
 #'  @export
 #'  @examples
 #'  \dontrun{
-#'  filename<-getISD()
-#'  filename<-substring(filename,1,nchar(filename)-3)
-#'  data <- readISD(filename,QC=FALSE)
+#'  stdata<-getISD()
+#'  data <- readISD(stdata,QC=FALSE)
 #'  } 
 
 readISD <- function(stdata,QC=TRUE){

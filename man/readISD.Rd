@@ -3,10 +3,10 @@
 \alias{readISD}
 \title{Read and reformat the ISD data file}
 \usage{
-readISD(filename, QC = TRUE)
+readISD(stdata, QC = TRUE)
 }
 \arguments{
-\item{filename}{}
+\item{stdata}{}
 
 \item{QC}{\code{logical}}
 }
@@ -21,9 +21,8 @@ data.frame with ISD station data
 }
 \examples{
 \dontrun{
- filename<-getISD()
- filename<-substring(filename,1,nchar(filename)-3)
- data <- readISD(filename,QC=FALSE)
+ stdata<-getISD()
+ data <- readISD(stdata,QC=FALSE)
  }
 }
 \author{
