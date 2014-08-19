@@ -20,6 +20,8 @@ ISDstations <- function(){stations <- read.csv('ftp://ftp.ncdc.noaa.gov/pub/data
 
 getISD <- function(year=2014,USAF = 84490,WBAN=13025,stations=NULL)
 {
+  require(RCurl)
+ meta<-NULL 
 if (!is.null(stations)){info<-stations[stations$USAF==USAF & stations$WBAN == WBAN,]; print(info)}
 
 if (nchar(USAF)<6){USAF <- paste(rep('0',6-nchar(USAF)),USAF,sep='')}
@@ -28,9 +30,11 @@ if (nchar(WBAN)<5){WBAN <- paste(rep('0',5-nchar(WBAN)),WBAN,sep='')}
 url <- paste('http://www1.ncdc.noaa.gov/pub/data/noaa/',year,'/',sep='')
 file <- paste(USAF,'-',WBAN,'-',year,'.gz',sep='')
 
+if (url.exists(paste(url,file,sep=''))){
 con <- gzcon(url(paste(url,file,sep=''), "r"))
 meta <- readLines(con)
 close(con)
+}
 
 # if (file.exists(file)) {
 # command<-paste('rm ',file,sep='')
