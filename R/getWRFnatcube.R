@@ -92,11 +92,13 @@ getWRFnatcube<-function(nc,time_ind,vlev=59,HGT_WRF,zout,var4d=c('QKE','tracer_1
   TH3D <- vert.interp(TWRF,zabg,zout)+300-273.15 
   
   WS3D <- sqrt(U3D^2 + V3D^2)
-  WD3D <- WS3D
+  WD3D <- atan2(U3D,V3D)*180/(3.1459)+180
   
-  for (vl in 1:dim(U3D)[3]){
-    WD3D[[vl]] <- atan2(U3D[[1]],V3D[[1]])*180/(3.1459)+180
-  }
+ # WD3D <- WS3D
+  
+#  for (vl in 1:dim(U3D)[3]){
+#   WD3D[[vl]] <- atan2(U3D[[1]],V3D[[1]])*180/(3.1459)+180
+#  }
   
   st.WRF.temp <-list(U3D,V3D,W3D,WS3D,WD3D,P3D,T3D,TH3D,TD3D)
   varnames <- c('U3D','V3D','W3D','WS3D','WD3D','P3D','T3D','TH3D','TD3D')
