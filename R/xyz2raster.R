@@ -13,7 +13,7 @@
 #'  @export
 
 
-xyz2raster  <- function(data,subset,p.res=100,proj.utm='+proj=utm +zone=18 +units=km +datum=NAD83 +no_defs',log=TRUE){
+xyz2raster  <- function(data,subset,p.res=100,proj.utm='+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=km +nadgrids=@null +no_defs',log=TRUE){
 
   
 library(sp)
@@ -35,7 +35,7 @@ if (log){
 } else {
   sp.data <- data.frame(lon=subset$lon, lat=subset$lat, conc=(subset$conc))  
 }
-sp.data$conc[!(is.finite(sp.data$conc))]<-0
+#sp.data$conc[!(is.finite(sp.data$conc))]<-0
 
 coordinates(sp.data) <- ~ lon+lat
 
