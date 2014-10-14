@@ -44,8 +44,9 @@ proj4string(sp.data) = CRS(proj.latlon)
 sp.data.proj <- spTransform(sp.data,CRSobj=CRS(proj.utm))
 
 # Create new grid 
-
-g1 <- expand.grid(x = seq(range(data$lon)[1]-3,range(data$lon)[2]+3, length=p.res), y = seq(range(data$lat)[1]-3,range(data$lat)[2]+3, length=p.res))
+rlon <- range(data$lon)
+rlat <- range(data$lat)
+g1 <- expand.grid(x = seq(rlon[1]-0.05*(rlon[2]-rlon[1]),rlon[2]+0.05*(rlon[2]-rlon[1]), length=p.res), y = seq(rlat[1]-0.05*(rlat[2]-rlat[1]),rlat[2]+0.05*(rlat[2]-rlat[1]), length=p.res))
 g1.proj <- spTransform(SpatialPoints(g1,proj=CRS(proj.latlon)),CRSobj=CRS(proj.utm))
 r <- raster(ncol=p.res,nrow=p.res) 
 extent(r)<-extent(g1.proj)
