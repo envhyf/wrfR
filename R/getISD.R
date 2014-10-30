@@ -5,7 +5,7 @@
 #'  @author I. Lopez-Coto, 2013 (israel.lopez@@dfa.uhu.es / inl@@nist.gov)
 #'  @export
 
-ISDstations <- function(){stations <- read.csv('ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ish-history.csv')}
+ISDstations <- function(){stations <- read.csv('ftp://ftp.ncdc.noaa.gov/pub/data/noaa/isd-history.csv')}
 
 #'  @title Retrieve the ISD data file 
 #'  @description
